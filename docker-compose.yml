@@ -1,46 +1,46 @@
 version: '2'
 
 services:
-  r7000:
+  r8000:
     image: 'carwestsam/redis-with-source'
     container_name: redis-cluster-entry
     ports:
-      - '7000:7000'
-      - '7001:7001'
-      - '7002:7002'
-      - '7003:7003'
-      - '7004:7004'
-      - '7005:7005'
+      - '8000:8000'
+      - '8001:8001'
+      - '8002:8002'
+      - '8003:8003'
+      - '8004:8004'
+      - '8005:8005'
     volumes:
-      - ./configure/7000/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./configure/8000/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-  r7001:
+  r8001:
     image: 'carwestsam/redis-with-source'
     volumes:
-      - ./configure/7001/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./configure/8001/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    network_mode: "service:r7000"
-  r7002:
+    network_mode: "service:r8000"
+  r8002:
     image: 'carwestsam/redis-with-source'
     volumes:
-      - ./configure/7002/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./configure/8002/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    network_mode: "service:r7000"
-  r7003:
+    network_mode: "service:r8000"
+  r8003:
     image: 'carwestsam/redis-with-source'
     volumes:
-      - ./configure/7003/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./configure/8003/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    network_mode: "service:r7000"
-  r7004:
+    network_mode: "service:r8000"
+  r8004:
     image: 'carwestsam/redis-with-source'
     volumes:
-      - ./configure/7004/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./configure/8004/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    network_mode: "service:r7000"
-  r7005:
+    network_mode: "service:r8000"
+  r8005:
     image: 'carwestsam/redis-with-source'
     volumes:
-      - ./configure/7005/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./configure/8005/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf
-    network_mode: "service:r7000"
+    network_mode: "service:r8000"
